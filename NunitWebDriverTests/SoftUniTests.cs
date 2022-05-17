@@ -13,8 +13,7 @@ namespace NunitWebDriverTests
         {
             // Add option to chrome browse instance
             var options = new ChromeOptions();
-            options.AddArgument("--headless");
-
+            // options.AddArguments("--headless", "--window-size=1920,1200");
 
             this.driver = new ChromeDriver(options);
             driver.Url = "https://softuni.bg";
@@ -42,7 +41,7 @@ namespace NunitWebDriverTests
         public void Test_AssertAboutUsTitle()
         {
             // Act
-            var zaNasElement = driver.FindElement(By.LinkText("За нас"));
+            var zaNasElement = driver.FindElement(By.CssSelector("li:nth-of-type(1) > .nav-link > .cell"));
             zaNasElement.Click();
 
             string expectedTitle = "За нас - Софтуерен университет";
